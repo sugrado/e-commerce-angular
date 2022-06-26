@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  template: `<in-layout></in-layout>`,
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
   title = 'eCommerceClient';
