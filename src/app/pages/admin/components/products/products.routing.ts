@@ -1,6 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { AllProductsComponent } from 'src/app/pages/ui/components/products/all-products/all-products.component';
+import { AllProductsComponent } from './all-products/all-products.component';
 
 const routes: Routes = [
   {
