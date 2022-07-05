@@ -21,7 +21,7 @@ import { ApiInterceptor } from './interceptors/api-interceptor';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
