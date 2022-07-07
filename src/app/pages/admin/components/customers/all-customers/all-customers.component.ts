@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseSpinnerService } from 'src/app/base/baseSpinner.service';
+import { BaseSpinnerService } from 'src/app/core/services/baseSpinner.service';
 
 @Component({
   selector: 'in-all-customers',
