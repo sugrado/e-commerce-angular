@@ -1,0 +1,9 @@
+::ng-deep .mat-dialog-container {
+    overflow-y: hidden !important;
+}
+
+.popup-toolbox {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+}

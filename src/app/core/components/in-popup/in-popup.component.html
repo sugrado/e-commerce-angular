@@ -1,3 +1,20 @@
-<p>
-  in-popup works!
-</p>
+<ng-template #popupContent>
+  <span #headerHtml>
+    <ng-content select="[header]"></ng-content>
+  </span>
+  <div *ngIf="headerHtml?.children?.length === 0">
+    <div class="popup-toolbox">
+      <h2 mat-dialog-title>{{title}}</h2>
+      <button *ngIf="showCloseButton" tabindex="-1" class="btn btn-link" (click)="closePopup()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <mat-dialog-content>
+    <ng-content select="[body]"></ng-content>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <ng-content select="[footer]"></ng-content>
+  </mat-dialog-actions>
+</ng-template>
