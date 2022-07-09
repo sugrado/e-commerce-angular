@@ -4,7 +4,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 @Injectable({
   providedIn: 'root',
 })
-export class BaseSpinnerService {
+export class CustomSpinnerService {
   constructor(private spinner: NgxSpinnerService) {}
 
   showSpinner() {

@@ -8,7 +8,7 @@ export class CustomToastrService {
   constructor(private toastr: ToastrService) {}
   message = (
     message: string,
-    title: string,
+    title: string = 'Message',
     toastrOptions: Partial<ToastrOptions> = {} as ToastrOptions
   ) =>
     this.toastr[toastrOptions.messageType ?? ToastrMessageType.Success](
