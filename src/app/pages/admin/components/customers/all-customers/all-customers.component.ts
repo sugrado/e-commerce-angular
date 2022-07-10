@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseSpinnerService } from 'src/app/core/services/baseSpinner.service';
+import { CustomSpinnerService } from 'src/app/core/services/custom-spinner.service';
 
 @Component({
   selector: 'in-all-customers',
@@ -7,7 +7,7 @@ import { BaseSpinnerService } from 'src/app/core/services/baseSpinner.service';
   styleUrls: ['./all-customers.component.scss'],
 })
 export class AllCustomersComponent implements OnInit {
-  constructor(private baseSpinnerService: BaseSpinnerService) {}
+  constructor(private baseSpinnerService: CustomSpinnerService) {}
 
   ngOnInit() {}
 }
