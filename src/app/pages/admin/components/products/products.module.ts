@@ -4,15 +4,18 @@ import { AllProductsComponent } from './all-products/all-products.component';
 import { ProductsRoutingModule } from './products.routing';
 import { NewProductComponent } from './new-product/new-product.component';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-
+import { MaterialModule } from 'src/app/core/modules/material.module';
+import { CoreModule } from 'src/app/core/core.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [AllProductsComponent, NewProductComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
     MatButtonModule,
-    MatIconModule,
+    MaterialModule,
+    CoreModule,
+    ReactiveFormsModule,
   ],
 })
 export class ProductsModule {}
