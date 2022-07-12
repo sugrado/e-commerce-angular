@@ -1,9 +1,10 @@
+<in-new-product #newProduct></in-new-product>
 <div class="content">
   <div class="content-card">
     <div class="content-card-header">
       <h2>Products</h2>
-      <button mat-flat-button color="primary">
-        <mat-icon>add</mat-icon>Add Product
+      <button class="btn btn-success" (click)="newProduct.add()">
+        <i class="fa fa-add me-2"></i>Add Product
       </button>
     </div>
     <div class="content-card-body">

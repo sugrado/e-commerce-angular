@@ -43,3 +43,7 @@
         border-bottom-right-radius: 4px;
     }
 }
+
+::ng-deep .mat-form-field {
+    width: 100% !important;
+}
