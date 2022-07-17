@@ -1,4 +1,3 @@
-import { CustomSpinnerService } from 'src/app/core/services/custom-spinner.service';
 import { ProductService } from './../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,8 +20,7 @@ export class NewProductComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private customToastrService: CustomToastrService,
-    private productService: ProductService,
-    private baseSpinnerService: CustomSpinnerService
+    private productService: ProductService
   ) {}
 
   ngOnInit() {
@@ -52,7 +50,7 @@ export class NewProductComponent implements OnInit {
       return;
     }
 
-    this.baseSpinnerService.showSpinner();
+    environment.showSpinner = true;
     this.productService
       .create(<Product>{
         name: this.productCreateForm.value.name,
@@ -62,7 +60,7 @@ export class NewProductComponent implements OnInit {
       .subscribe((res) => {
         this.customToastrService.message('Product created successfully!');
         this.closePopup();
-        this.baseSpinnerService.hideSpinner();
+        environment.showSpinner = false;
       });
   }
 

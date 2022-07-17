@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  showSpinner: false,
   api: {
     endpoint: 'http://localhost:5064/api/',
   },
