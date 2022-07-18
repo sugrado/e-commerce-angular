@@ -1,10 +1,7 @@
 import { ProductService } from './../services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {
-  CustomToastrService,
-  ToastrMessageType,
-} from 'src/app/core/services/custom-toastr.service';
+import { CustomToastrService } from 'src/app/core/services/custom-toastr.service';
 import { Product } from '../contracts/product';
 import { environment } from 'src/environments/environment';
 
@@ -42,11 +39,6 @@ export class NewProductComponent implements OnInit {
 
   save() {
     if (this.productCreateForm.invalid) {
-      this.customToastrService.message(
-        'Name, stock and price required!',
-        'Form Error',
-        { messageType: ToastrMessageType.Error }
-      );
       return;
     }
 
@@ -57,10 +49,12 @@ export class NewProductComponent implements OnInit {
         stock: this.productCreateForm.value.stock,
         price: this.productCreateForm.value.price,
       })
-      .subscribe((res) => {
-        this.customToastrService.message('Product created successfully!');
-        this.closePopup();
-        environment.showSpinner = false;
+      .subscribe({
+        next: (res) => {
+          this.customToastrService.message('Product created successfully!');
+          this.closePopup();
+          environment.showSpinner = false;
+        },
       });
   }
 
