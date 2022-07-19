@@ -33,22 +33,29 @@ export class AllProductsComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    await this.loadProducts();
+    await this.getProducts();
   }
 
-  async loadProducts() {
+  async getProducts() {
     environment.showSpinner = true;
-    const allProducts: ListProduct[] = await this.productService.read(
-      () => (environment.showSpinner = false),
-      (error) => {
-        this.customToastrService.message(error, 'Error', {
-          messageType: ToastrMessageType.Error,
-        });
-        environment.showSpinner = true;
-      }
-    );
-    console.log(allProducts);
-    this.dataSource = new MatTableDataSource<ListProduct>(allProducts);
-    this.dataSource.paginator = this.paginator;
+    const allProducts: { totalCount: number; products: ListProduct[] } =
+      await this.productService.read(
+        this.paginator?.pageIndex,
+        this.paginator?.pageSize,
+        () => (environment.showSpinner = false),
+        (error) => {
+          this.customToastrService.message(error, 'Error', {
+            messageType: ToastrMessageType.Error,
+          });
+          environment.showSpinner = true;
+        }
+      );
+
+    this.dataSource = new MatTableDataSource<ListProduct>(allProducts.products);
+    this.paginator.length = allProducts.totalCount;
+  }
+
+  async pageChaned() {
+    await this.getProducts();
   }
 }

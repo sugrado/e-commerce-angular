@@ -1,5 +1,5 @@
 import { ProductService } from './../services/product.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomToastrService } from 'src/app/core/services/custom-toastr.service';
 import { Product } from '../contracts/product';
@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./new-product.component.scss'],
 })
 export class NewProductComponent implements OnInit {
+  @Output() productChanged = new EventEmitter();
   popupVisible: boolean = false;
   product!: Product;
   productCreateForm!: FormGroup;
@@ -52,6 +53,7 @@ export class NewProductComponent implements OnInit {
       .subscribe({
         next: (res) => {
           this.customToastrService.message('Product created successfully!');
+          this.productChanged.emit();
           this.closePopup();
           environment.showSpinner = false;
         },

@@ -17,11 +17,18 @@ export class ProductService {
   }
 
   async read(
+    page: number = 0,
+    size: number = 11,
     successCallBack?: () => void,
     errorCallBack?: (errorMessage: string) => void
-  ): Promise<ListProduct[]> {
-    const promiseData: Promise<ListProduct[]> = lastValueFrom(
-      this.httpClient.get<ListProduct[]>('products')
+  ): Promise<{ totalCount: number; products: ListProduct[] }> {
+    const promiseData: Promise<{
+      totalCount: number;
+      products: ListProduct[];
+    }> = lastValueFrom(
+      this.httpClient.get<{ totalCount: number; products: ListProduct[] }>(
+        `products?page=${page}&size=${size}`
+      )
     );
 
     promiseData

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   showSpinner: false,
-  gridHeight: window.innerHeight - 300,
+  gridHeight: window.innerHeight - 270,
   api: {
     endpoint: 'http://localhost:5064/api/',
   },

@@ -1,4 +1,4 @@
-<in-new-product #newProduct></in-new-product>
+<in-new-product #newProduct (productChanged)="getProducts()"></in-new-product>
 <div class="content">
   <div class="content-card">
     <div class="content-card-header">
@@ -40,7 +40,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
 
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons
+        <mat-paginator (page)="pageChaned()" [pageSizeOptions]="[11, 20]" showFirstLastButtons
           aria-label="Select page of periodic elements">
         </mat-paginator>
       </div>
