@@ -1,14 +1,15 @@
 import {
   CustomToastrService,
   ToastrMessageType,
-} from './../../../../../core/services/custom-toastr.service';
+} from '../../../../../../core/services/custom-toastr.service';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { environment } from 'src/environments/environment';
-import { ListProduct } from '../contracts/list-product';
-import { ProductService } from '../services/product.service';
+import { ListProduct } from '../../contracts/list-product';
+import { ProductService } from '../../services/product.service';
 import { DataResult } from 'src/app/core/results/data-result';
 import { MatPaginator } from '@angular/material/paginator';
+declare var $: any;
 
 @Component({
   selector: 'in-all-products',
@@ -25,6 +26,7 @@ export class AllProductsComponent implements OnInit {
     'price',
     'createdAt',
     'modifiedAt',
+    'delete',
   ];
   dataSource!: MatTableDataSource<ListProduct>;
   constructor(
@@ -57,5 +59,11 @@ export class AllProductsComponent implements OnInit {
 
   async pageChaned() {
     await this.getProducts();
+  }
+
+  delete(id: number, event: any) {
+    const img: HTMLImageElement = event.srcElement;
+    console.log(img.parentElement?.parentElement?.parentElement);
+    $(img.parentElement?.parentElement?.parentElement).fadeOut(500);
   }
 }

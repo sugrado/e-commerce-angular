@@ -1,9 +1,9 @@
-import { ProductService } from './../services/product.service';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CustomToastrService } from 'src/app/core/services/custom-toastr.service';
-import { Product } from '../contracts/product';
 import { environment } from 'src/environments/environment';
+import { Product } from '../../contracts/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'in-new-product',

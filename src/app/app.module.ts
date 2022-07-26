@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ApiInterceptor } from './interceptors/api-interceptor';
+import { ApiInterceptor } from './core/interceptors/api-interceptor';
 
 @NgModule({
   declarations: [AppComponent],
